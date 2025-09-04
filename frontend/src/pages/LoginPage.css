@@ -1,13 +1,4 @@
 /* src/pages/LoginPage.css */
-/* LoginPage.css */
-
-/* Remove invalid JS and JSX code from CSS file */
-.logo {
-  width: 150px;
-  margin: 0 auto 20px auto;
-  display: block;
-}
-
 
 body {
   font-family: Arial, sans-serif;
@@ -19,39 +10,47 @@ body {
   background-repeat: no-repeat;
 }
 
+.page-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 1rem;
+}
+
 .login-container {
-  max-width: 400px;
-  margin: 80px auto;
+  max-width: 500px;
+  width: 100%;
   padding: 30px;
   border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.85); /* Transparência */
+  background-color: rgba(255, 255, 255, 0.85);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border: none;
-}
-
-.login-container h2 {
   text-align: center;
-  margin-bottom: 20px;
 }
 
-.login-container label {
+.logo {
+  width: 150px;
+  margin: 0 auto 20px auto;
   display: block;
-  margin-top: 10px;
-  font-weight: bold;
 }
 
-.login-container input {
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  text-align: left;
+}
+
+input {
   width: 100%;
   padding: 8px;
-  margin-top: 5px;
   border-radius: 4px;
   border: 1px solid #aaa;
 }
 
-.login-container button {
+button {
   width: 100%;
   padding: 10px;
-  margin-top: 20px;
   background-color: #007bff;
   color: white;
   border: none;
@@ -59,15 +58,10 @@ body {
   cursor: pointer;
 }
 
-.login-container button:hover {
+button:hover {
   background-color: #0056b3;
 }
-.page-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
+
 .signup-link {
   margin-top: 15px;
   text-align: center;
@@ -82,4 +76,14 @@ body {
 
 .signup-link a:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .login-container {
+    padding: 20px;
+  }
+
+  .form-grid {
+    gap: 0.8rem;
+  }
 }
