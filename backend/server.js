@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 
 const app = express();
-const PORT = 3001; // Usaremos a porta 3001 para o backend
+const PORT = process.env.PORT || 3001; // Usa a porta do ambiente ou 3001 como padrão
 
 // Middlewares para permitir o uso de JSON e CORS
 app.use(cors());
@@ -205,5 +205,6 @@ app.put('/api/my-parking', (req, res) => {
 
 // Inicia o servidor
 app.listen(PORT, () => {
-    console.log(`Servidor backend rodando em http://localhost:${PORT}`);
+    // O console.log foi ajustado para não mostrar 'localhost' em produção
+    console.log(`Servidor backend rodando na porta ${PORT}`);
 });
