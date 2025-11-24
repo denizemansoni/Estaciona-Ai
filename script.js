@@ -1,4 +1,6 @@
 // Função para alternar o tema
+const API_URL = 'https://estaciona-ai-backend.onrender.com';
+
 const toggleTheme = () => {
     const body = document.body;
     const themeToggle = document.getElementById('theme-toggle');
@@ -39,7 +41,7 @@ const handleRegistration = async (event) => {
     const userType = document.querySelector('input[name="user_type"]:checked').value;
 
     try {
-        const response = await fetch('http://localhost:3001/api/register', {
+        const response = await fetch(`${API_URL}/api/register`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ name, email, password, userType }),
@@ -68,7 +70,7 @@ const handleLogin = async (event, userType) => {
     const password = document.getElementById('password').value;
 
     try {
-        const response = await fetch('http://localhost:3001/api/login', {
+        const response = await fetch(`${API_URL}/api/login`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password, userType }),
@@ -212,7 +214,7 @@ function initLeafletMap() {
 // Função para carregar os estacionamentos do backend e adicioná-los ao mapa
 async function loadParkingMarkers(map) {
     try {
-        const response = await fetch('http://localhost:3001/api/parkings');
+        const response = await fetch(`${API_URL}/api/parkings`);
         const parkings = await response.json();
 
         if (response.ok) {
@@ -246,7 +248,7 @@ async function loadParkingMarkers(map) {
 // Função para lidar com o clique no botão "Reservar"
 async function handleReservation(parkingId) {
     try {
-        const response = await fetch('http://localhost:3001/api/reserve', {
+        const response = await fetch(`${API_URL}/api/reserve`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ parkingId }),
@@ -279,7 +281,7 @@ async function handleAddressSearch() {
     }
 
     try {
-        const response = await fetch(`http://localhost:3001/api/geocode?address=${encodeURIComponent(address)}`);
+        const response = await fetch(`${API_URL}/api/geocode?address=${encodeURIComponent(address)}`);
         const result = await response.json();
 
         if (response.ok) {
@@ -306,7 +308,7 @@ async function handleAddressSearch() {
 // Função para carregar os dados do estacionamento no formulário
 async function loadEstablishmentData() {
     try {
-        const response = await fetch('http://localhost:3001/api/my-parking');
+        const response = await fetch(`${API_URL}/api/my-parking`);
         const data = await response.json();
 
         if (response.ok) {
@@ -329,7 +331,7 @@ async function handleUpdateParkingData(event) {
     const totalSpots = document.getElementById('total-spots').value;
     const availableSpots = document.getElementById('available-spots').value;
 
-    const response = await fetch('http://localhost:3001/api/my-parking', {
+    const response = await fetch(`${API_URL}/api/my-parking`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ totalSpots, availableSpots }),
