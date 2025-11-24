@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Dashboard do Motorista - Estaciona-Aí">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- CSS do Leaflet (necessário para o mapa) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+    <!-- Script de Autenticação (Guardião) - DEVE VIR ANTES DE TUDO -->
+    <script src="auth.js"></script>
+
+    <title>Dashboard do Motorista - Estaciona-Aí</title>
+    <style>
+        /* Garante que o mapa ocupe todo o espaço do painel */
+        #map {
+            height: 100%;
+            width: 100%;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="header-link"><img src="logo.png" alt="Logo Estaciona-Aí" class="logo"></a>
+        <a href="index.html" class="header-link"><h1>Estaciona-Aí</h1></a>
+        <div class="header-controls">
+            <span id="user-greeting" class="user-greeting"></span>
+            <button id="theme-toggle" class="theme-toggle-btn">🌙</button>
+            <a href="index.html" class="btn btn-logout">Sair</a>
+        </div>
+    </header>
+
+    <main class="dashboard-main">
+        <div class="dashboard-container">
+            <h2>Painel do Motorista</h2>
+
+            <!-- Seção de Busca e Mapa -->
+            <section class="dashboard-card">
+                <h3>Encontrar Vaga</h3>
+                <div class="search-map-container">
+                    <div class="search-panel">
+                        <div class="form-group">
+                            <label for="search-address">Digite um endereço ou ponto de referência</label>
+                            <input type="text" id="search-address" placeholder="Ex: Av. Paulista, 1000">
+                        </div>
+                        <button id="search-button" class="btn">Buscar</button>
+                        <div class="search-results">
+                            <!-- Resultados da busca apareceriam aqui -->
+                            <p class="placeholder-text">Selecione uma vaga para ver a rota e o tempo de percurso.</p>
+                        </div>
+                    </div>
+                    <div class="map-panel">
+                        <!-- O mapa do Google Maps será renderizado aqui -->
+                        <div id="map"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção de Gerenciamento de Reservas -->
+            <section class="dashboard-card">
+                <h3>Minhas Reservas</h3>
+                <div class="reservations-list">
+                    <!-- Exemplo de reserva pendente -->
+                    <div class="reservation-item pending">
+                        <p><strong>Shopping Central</strong> - Vaga A-12</p>
+                        <p>Status: Pendente de Pagamento</p>
+                        <a href="#" class="btn btn-small">Pagar Agora</a>
+                    </div>
+                    <!-- Exemplo de reserva paga -->
+                    <div class="reservation-item paid">
+                        <p><strong>Estacionamento Centro</strong> - Vaga B-05</p>
+                        <p>Status: Pagamento Confirmado</p>
+                    </div>
+                    <!-- Exemplo de reserva cancelada -->
+                    <div class="reservation-item canceled">
+                        <p><strong>Rua das Flores, 45</strong> - Vaga 03</p>
+                        <p>Status: Cancelada</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Estaciona-Aí. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <!-- JS do Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Cadastro - Estaciona-Aí">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Cadastro - Estaciona-Aí</title>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="header-link"><img src="logo.png" alt="Logo Estaciona-Aí" class="logo"></a>
+        <a href="index.html" class="header-link"><h1>Estaciona-Aí</h1></a>
+        <button id="theme-toggle" class="theme-toggle-btn">🌙</button>
+    </header>
+
+    <main>
+        <section class="form-container">
+            <h2>Crie sua Conta</h2>
+            <form id="registration-form">
+                <div class="form-group">
+                    <label for="name">Nome Completo</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group radio-group">
+                    <label>Eu sou:</label>
+                    <label><input type="radio" name="user_type" value="driver" checked> Motorista</label>
+                    <label><input type="radio" name="user_type" value="establishment"> Estabelecimento</label>
+                </div>
+                <button type="submit" class="btn">Cadastrar</button>
+            </form>
+            <p class="form-link">Já tem uma conta? <a href="login.html">Faça Login</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Estaciona-Aí. Todos os direitos reservados.</p>
+        <ul>
+            <li><a href="#">Política de Privacidade</a></li>
+            <li><a href="#">Termos de Serviço</a></li>
+            <li><a href="#">Contato</a></li>
+        </ul>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
